@@ -1,0 +1,60 @@
+26/10/17 11:46:41 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/10/17 11:46:42 INFO SparkContext: Running Spark version 3.5.5
+26/10/17 11:46:42 INFO SparkContext: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+26/10/17 11:46:42 INFO SparkContext: Java version 11.0.26
+26/10/17 11:46:42 INFO ResourceUtils: ==============================================================
+26/10/17 11:46:42 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/10/17 11:46:42 INFO ResourceUtils: ==============================================================
+26/10/17 11:46:42 INFO SparkContext: Submitted application: returns-check
+26/10/17 11:46:42 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/10/17 11:46:42 INFO ResourceProfile: Limiting resource is cpu
+26/10/17 11:46:42 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/10/17 11:46:42 INFO SecurityManager: Changing view acls to: root
+26/10/17 11:46:42 INFO SecurityManager: Changing modify acls to: root
+26/10/17 11:46:42 INFO SecurityManager: Changing view acls groups to: 
+26/10/17 11:46:42 INFO SecurityManager: Changing modify acls groups to: 
+26/10/17 11:46:42 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+26/10/17 11:46:42 INFO Utils: Successfully started service 'sparkDriver' on port 45941.
+26/10/17 11:46:42 INFO SparkEnv: Registering MapOutputTracker
+26/10/17 11:46:42 INFO SparkEnv: Registering BlockManagerMaster
+26/10/17 11:46:42 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/10/17 11:46:42 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/10/17 11:46:42 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/10/17 11:46:42 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-bb2cf972-31fb-4cb1-b913-9a3c8ced5a59
+26/10/17 11:46:42 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+26/10/17 11:46:42 INFO SparkEnv: Registering OutputCommitCoordinator
+26/10/17 11:46:43 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/10/17 11:46:43 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/10/17 11:46:43 INFO SparkContext: Added JAR file:///opt/work/jars/iceberg-spark-runtime-3.5_2.12-1.8.1.jar at spark://dfccadcd19be:45941/jars/iceberg-spark-runtime-3.5_2.12-1.8.1.jar with timestamp 1792237602302
+26/10/17 11:46:43 INFO SparkContext: Added JAR file:///opt/work/jars/iceberg-aws-bundle-1.8.1.jar at spark://dfccadcd19be:45941/jars/iceberg-aws-bundle-1.8.1.jar with timestamp 1792237602302
+26/10/17 11:46:43 INFO Executor: Starting executor ID driver on host dfccadcd19be
+26/10/17 11:46:43 INFO Executor: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+26/10/17 11:46:43 INFO Executor: Java version 11.0.26
+26/10/17 11:46:43 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+26/10/17 11:46:43 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@66244d06 for default.
+26/10/17 11:46:43 INFO Executor: Fetching spark://dfccadcd19be:45941/jars/iceberg-spark-runtime-3.5_2.12-1.8.1.jar with timestamp 1792237602302
+26/10/17 11:46:43 INFO TransportClientFactory: Successfully created connection to dfccadcd19be/172.22.0.6:45941 after 23 ms (0 ms spent in bootstraps)
+26/10/17 11:46:43 INFO Utils: Fetching spark://dfccadcd19be:45941/jars/iceberg-spark-runtime-3.5_2.12-1.8.1.jar to /tmp/spark-cad230f5-e435-45c2-a52e-0b85de026cd9/userFiles-6d5109b3-94e7-4ed6-9acb-5a37536892da/fetchFileTemp4013110414935452926.tmp
+26/10/17 11:46:43 INFO Executor: Adding file:/tmp/spark-cad230f5-e435-45c2-a52e-0b85de026cd9/userFiles-6d5109b3-94e7-4ed6-9acb-5a37536892da/iceberg-spark-runtime-3.5_2.12-1.8.1.jar to class loader default
+26/10/17 11:46:43 INFO Executor: Fetching spark://dfccadcd19be:45941/jars/iceberg-aws-bundle-1.8.1.jar with timestamp 1792237602302
+26/10/17 11:46:43 INFO Utils: Fetching spark://dfccadcd19be:45941/jars/iceberg-aws-bundle-1.8.1.jar to /tmp/spark-cad230f5-e435-45c2-a52e-0b85de026cd9/userFiles-6d5109b3-94e7-4ed6-9acb-5a37536892da/fetchFileTemp16906422847470122861.tmp
+26/10/17 11:46:44 INFO Executor: Adding file:/tmp/spark-cad230f5-e435-45c2-a52e-0b85de026cd9/userFiles-6d5109b3-94e7-4ed6-9acb-5a37536892da/iceberg-aws-bundle-1.8.1.jar to class loader default
+26/10/17 11:46:44 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 36941.
+26/10/17 11:46:44 INFO NettyBlockTransferService: Server created on dfccadcd19be:36941
+26/10/17 11:46:44 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/10/17 11:46:44 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, dfccadcd19be, 36941, None)
+26/10/17 11:46:44 INFO BlockManagerMasterEndpoint: Registering block manager dfccadcd19be:36941 with 434.4 MiB RAM, BlockManagerId(driver, dfccadcd19be, 36941, None)
+26/10/17 11:46:44 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, dfccadcd19be, 36941, None)
+26/10/17 11:46:44 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, dfccadcd19be, 36941, None)
++-------+------------------+-------+---------+------------------------------+---------------+------------------------------------------------------------------------------------------------------+
+|custkey|name              |acctbal|nationkey|address                       |phone          |comment                                                                                               |
++-------+------------------+-------+---------+------------------------------+---------------+------------------------------------------------------------------------------------------------------+
+|1      |Customer#000000001|711.56 |15       |IVhzIApeRb ot,c,E             |25-989-741-2988|to the even, regular platelets. regular, ironic epitaphs nag e                                        |
+|2      |Customer#000000002|121.65 |13       |XSTf4,NCwDVaWNe6tEgvwfmRchLXak|23-768-687-3665|l accounts. blithely ironic theodolites integrate boldly: caref                                       |
+|3      |Customer#000000003|7498.12|1        |MG9kdTD2WBHm                  |11-719-748-3364| deposits eat slyly ironic, even instructions. express foxes detect slyly. blithely even accounts abov|
+|4      |Customer#000000004|2866.83|4        |XxVSJsLAGtn                   |14-128-190-5944| requests. final, regular ideas sleep final accou                                                     |
+|5      |Customer#000000005|794.47 |3        |KvpyuHCplrB84WgAiGV6sYpZq7Tj  |13-750-942-6364|n accounts will have to unwind. foxes cajole accor                                                    |
++-------+------------------+-------+---------+------------------------------+---------------+------------------------------------------------------------------------------------------------------+
+
+SPARK_BRONZE_OK {"customer": 300000, "orders": 3000000, "lineitem": 11997996, "nation": 25} Q10: 11.630 s, 20 rows
+FILE_CODECS_OK [{"schema": "bronze_gzip", "table": "nation", "format": "PARQUET", "compression": "GZIP", "file": "s3://lakehouse/returns/nation-8828c6c127ab4ff89b8fc80f9ca9ff60/data/20261017_114436_00115_4rw23-7348ba0a-66e7-49cf-b391-b6ec7a99a08d.parquet"}, {"schema": "bronze", "table": "nation", "format": "PARQUET", "compression": "ZSTD", "file": "s3://lakehouse/returns/nation-a3adf924dc0c41c68600308c97f1a628/data/20261017_114409_00106_4rw23-dedd2b77-46bf-4388-a339-906980eec668.parquet"}, {"schema": "bronze_orc_gzip", "table": "nation", "format": "ORC", "compression": "ZLIB", "file": "s3://lakehouse/returns/nation-cf3e14590e6b4956b0aff764a7973160/data/20261017_114354_00097_4rw23-1ff244b0-82ba-4c2e-8c33-4b5241939c34.orc"}, {"schema": "bronze_orc_zstd", "table": "nation", "format": "ORC", "compression": "ZSTD", "file": "s3://lakehouse/returns/nation-b0644b6dc50f452ab19fbecad325e0bc/data/20261017_114333_00088_4rw23-2d2d9352-e056-4867-8e7b-dc976fe7d977.orc"}]

@@ -1,0 +1,44 @@
+{
+  "id": "01a149a9-4f37-71d1-8729-993526ef2b2d",
+  "warehouse-id": "01a149a9-4f37-71d1-8729-993526ef2b2d",
+  "name": "returns",
+  "project-id": "00000000-0000-0000-0000-000000000000",
+  "storage-profile": {
+    "type": "s3",
+    "bucket": "lakehouse",
+    "key-prefix": "returns",
+    "assume-role-arn": null,
+    "endpoint": "http://minio:9000/",
+    "region": "us-east-1",
+    "path-style-access": true,
+    "sts-role-arn": null,
+    "sts-endpoint": null,
+    "sts-enabled": false,
+    "sts-token-validity-seconds": 3600,
+    "sts-session-tags": {},
+    "flavor": "s3-compat",
+    "allow-alternative-protocols": null,
+    "remote-signing-url-style": "auto",
+    "push-s3-delete-disabled": true,
+    "aws-kms-key-arn": null,
+    "remote-signing-enabled": true,
+    "legacy-md5-behavior": null,
+    "storage-layout": null
+  },
+  "storage-credential-type": {
+    "type": "s3",
+    "credential-type": "access-key"
+  },
+  "delete-profile": {
+    "type": "hard"
+  },
+  "status": "active",
+  "protected": false,
+  "managed-by": "self-managed",
+  "allowed-format-versions": [
+    1,
+    2,
+    3
+  ],
+  "updated-at": null
+}

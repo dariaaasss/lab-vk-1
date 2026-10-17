@@ -1,0 +1,20 @@
+schema,table,rows,columns,files,format,active_bytes,metadata_bytes,all_bytes,partitions,location
+bronze,customer,300000,"custkey, name, acctbal, nationkey, address, phone, comment",1,PARQUET,16284248,610916,49430172,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/customer-c521560fd9c741899fae9d59f02d58cf
+bronze,orders,3000000,"orderkey, custkey, orderdate",1,PARQUET,16269608,289037,49098464,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/orders-23e0796898334619923810d69e4752f8
+bronze,lineitem,11997996,"orderkey, extendedprice, discount, returnflag",1,PARQUET,63059523,230489,189393659,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/lineitem-0e6ad9391e0c4d27979e529012ec9b8a
+bronze,nation,25,"nationkey, name",1,PARQUET,632,44091,45987,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/nation-a3adf924dc0c41c68600308c97f1a628
+bronze_gzip,customer,300000,"custkey, name, acctbal, nationkey, address, phone, comment",1,PARQUET,15988784,610874,48578294,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/customer-48e26ef6295348ee920797ad363bd69b
+bronze_gzip,orders,3000000,"orderkey, custkey, orderdate",1,PARQUET,17705609,289049,53405698,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/orders-3d524df5f1774061b69b0a2ffcd42fe8
+bronze_gzip,lineitem,11997996,"orderkey, extendedprice, discount, returnflag",1,PARQUET,62511496,230503,187775717,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/lineitem-c84827ac93e3418c9b40032a3b0337f8
+bronze_gzip,nation,25,"nationkey, name",1,PARQUET,585,44110,45865,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/nation-8828c6c127ab4ff89b8fc80f9ca9ff60
+bronze_orc_zstd,customer,300000,"custkey, name, acctbal, nationkey, address, phone, comment",1,ORC,14857410,610583,45177443,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/customer-4bee4f62e3344b4d90348fc17b522885
+bronze_orc_zstd,orders,3000000,"orderkey, custkey, orderdate",1,ORC,12966400,288981,39186148,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/orders-7bdb6eb65d0d40b388062e419f17e2c5
+bronze_orc_zstd,lineitem,11997996,"orderkey, extendedprice, discount, returnflag",1,ORC,76689480,230408,230289758,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/lineitem-4765064e1772433bbc242a03d3c766bf
+bronze_orc_zstd,nation,25,"nationkey, name",1,ORC,603,44003,45812,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/nation-b0644b6dc50f452ab19fbecad325e0bc
+bronze_orc_gzip,customer,300000,"custkey, name, acctbal, nationkey, address, phone, comment",1,ORC,15058836,610989,45780039,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/customer-097f5982dc67438aa3bc47f58116f8f3
+bronze_orc_gzip,orders,3000000,"orderkey, custkey, orderdate",1,ORC,13007311,288975,39308248,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/orders-cf8d61a13283401dadab32768c8ed9fc
+bronze_orc_gzip,lineitem,11997996,"orderkey, extendedprice, discount, returnflag",1,ORC,73123138,230439,219600818,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/lineitem-5787ddd175144878a55b6ac7f7f58c12
+bronze_orc_gzip,nation,25,"nationkey, name",1,ORC,559,44046,45723,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/nation-cf3e14590e6b4956b0aff764a7973160
+silver,customer_directory,300000,"custkey, name, acctbal, nation, address, phone, comment",1,PARQUET,16297377,203064,16500441,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/customer_directory-731b74b1f0fe4c20bb897039789d9701
+silver,order_returns,98352,"orderkey, custkey, orderdate, returned_positions, returned_value, analyst_note",1,PARQUET,1180508,113584,1294092,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/order_returns-95f1f285ece44affad66a3a7ce180feb
+gold,customer_refunds,20,"custkey, name, revenue, acctbal, nation, address, phone, comment",1,PARQUET,3261,39101,44997,"[{""spec-id"": 0, ""fields"": []}]",s3://lakehouse/returns/customer_refunds-4470e44e4e814ad5896bdbdbbd16f8c4

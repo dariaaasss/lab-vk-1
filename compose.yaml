@@ -1,0 +1,111 @@
+name: bulaeva-q10
+
+services:
+  postgres:
+    image: postgres:17-alpine@sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24
+    environment:
+      POSTGRES_USER: catalog
+      POSTGRES_PASSWORD: bulaeva-db-local
+      POSTGRES_DB: catalog
+    volumes:
+      - catalog-db:/var/lib/postgresql/data
+    mem_limit: 256m
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U catalog -d catalog"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  minio:
+    image: pgsty/silo:RELEASE.2026-09-03T13-18-01Z
+    command: server /data --console-address ':9001'
+    environment:
+      MINIO_ROOT_USER: labstore
+      MINIO_ROOT_PASSWORD: bulaeva-storage-local
+    ports:
+      - '127.0.0.1:29000:9000'
+      - '127.0.0.1:29001:9001'
+    volumes:
+      - ${WAREHOUSE_PATH:-warehouse-data}:/data
+    mem_limit: 512m
+    healthcheck:
+      test: [CMD, mc, ready, local]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+
+  migrate:
+    image: quay.io/lakekeeper/catalog:v0.14.0
+    command: migrate
+    environment: &lakekeeper-env
+      LAKEKEEPER__PG_DATABASE_URL_READ: postgresql://catalog:bulaeva-db-local@postgres:5432/catalog
+      LAKEKEEPER__PG_DATABASE_URL_WRITE: postgresql://catalog:bulaeva-db-local@postgres:5432/catalog
+      LAKEKEEPER__PG_ENCRYPTION_KEY: bulaeva-local-encryption-key
+      RUST_LOG: info
+    depends_on:
+      postgres:
+        condition: service_healthy
+    mem_limit: 512m
+
+  lakekeeper:
+    image: quay.io/lakekeeper/catalog:v0.14.0
+    command: serve
+    environment:
+      <<: *lakekeeper-env
+      LAKEKEEPER__BASE_URI: http://lakekeeper:8181
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+      minio:
+        condition: service_healthy
+    ports:
+      - '127.0.0.1:28181:8181'
+    mem_limit: 512m
+    healthcheck:
+      test: [CMD, /home/nonroot/lakekeeper, healthcheck]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  trino:
+    image: trinodb/trino:476
+    depends_on:
+      lakekeeper:
+        condition: service_healthy
+    ports:
+      - '127.0.0.1:28080:8080'
+    volumes:
+      - ./config/trino:/etc/trino:ro
+    mem_limit: 3g
+    cpus: 4
+    healthcheck:
+      test: [CMD, curl, -f, http://localhost:8080/v1/info]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+
+  spark:
+    image: apache/spark:3.5.5-python3
+    profiles: [tools]
+    user: '0:0'
+    entrypoint: /opt/spark/bin/spark-submit
+    command:
+      - --master
+      - local[2]
+      - --driver-memory
+      - 1g
+      - --jars
+      - /opt/work/jars/iceberg-spark-runtime-3.5_2.12-1.8.1.jar,/opt/work/jars/iceberg-aws-bundle-1.8.1.jar
+      - /opt/work/jobs/spark_check.py
+    volumes:
+      - ./jobs:/opt/work/jobs:ro
+      - ./sql:/opt/work/sql:ro
+      - ./.cache/jars:/opt/work/jars:ro
+      - ./results:/opt/work/results
+    mem_limit: 2g
+    cpus: 2
+
+volumes:
+  catalog-db:
+  warehouse-data:
